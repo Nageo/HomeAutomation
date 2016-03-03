@@ -22,7 +22,6 @@ namespace HomeAutomation.Controller.Home
             try
             {
                 o433Mhz.Send.Send433Mhz(23, code, active);
-                //c433Mhz.Send.Send433Mhz(23, code, active);
             }
             catch (Exception ex)
             {
