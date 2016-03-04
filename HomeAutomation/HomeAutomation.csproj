@@ -98,6 +98,8 @@
   <ItemGroup>
     <Compile Include="Controller\Home\Home.cs" />
     <Compile Include="Controller\Home\Response.cs" />
+    <Compile Include="Controller\Web\Response.cs" />
+    <Compile Include="Controller\Web\Web.cs" />
     <Compile Include="Controller\PhilipsHUE\Main.cs" />
     <Compile Include="Controller\PhilipsHUE\Response.cs" />
     <Compile Include="Log.cs" />

@@ -5,8 +5,9 @@ using System.Text;
 using System.Net.Http;
 using Windows.ApplicationModel.Background;
 using Devkoes.Restup.WebServer;
-using Devkoes.Restup.WebServer.Rest;
+using Devkoes.Restup.WebServer.File;
 using Devkoes.Restup.WebServer.Http;
+using Devkoes.Restup.WebServer.Rest;
 using Windows.System.Threading;
 
 // The Background Application template is documented at http://go.microsoft.com/fwlink/?LinkID=533884&clcid=0x409
@@ -31,18 +32,25 @@ namespace HomeAutomation
 
             await ThreadPool.RunAsync(async workItem => {
 
-                RestWebServer restWebServer = new RestWebServer(80);
+                HttpServer httpServer = new HttpServer(80);
                 try
                 {
                     // initialize webserver
-                    restWebServer.RegisterController<Controller.Home.Home>();
-                    restWebServer.RegisterController<Controller.PhilipsHUE.Main>();
-                    await restWebServer.StartServerAsync();
+                    var restRouteHandler = new RestRouteHandler();
+
+                    restRouteHandler.RegisterController<Controller.Home.Home>();
+                    restRouteHandler.RegisterController<Controller.Web.Web>();
+                    restRouteHandler.RegisterController<Controller.PhilipsHUE.Main>();
+
+                    httpServer.RegisterRoute("api", restRouteHandler);
+                    httpServer.RegisterRoute(new StaticFileRouteHandler(@"DemoStaticFiles\Web"));
+
+                    await httpServer.StartServerAsync();
                 }
                 catch (Exception ex)
                 {
                     Log.e(ex);
-                    restWebServer.StopServer();
+                    httpServer.StopServer();
                     Deferral.Complete();
                 }
 

@@ -46,7 +46,7 @@ namespace o433Mhz
             var sw = Stopwatch.StartNew();
             while (sw.ElapsedTicks < durationTicks)
             {
-
+                // unfortunatly thats the best way i know to block such precisley.. :/
             }
         }
 
@@ -83,6 +83,8 @@ namespace o433Mhz
             }
         }
         
+
+        // TODO: Go async ...
         public static void Send433Mhz(int gpio, string codeStr, int active)
         {
             // Validate code
