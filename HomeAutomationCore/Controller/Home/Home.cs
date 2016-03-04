@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Gpio;
 
-namespace HomeAutomation.Controller.Home
+namespace HomeAutomationCore.Controller.Home
 {
     [RestController(InstanceCreationType.Singleton)]
     internal class Home

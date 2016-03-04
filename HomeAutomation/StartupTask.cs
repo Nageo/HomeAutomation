@@ -30,31 +30,8 @@ namespace HomeAutomation
 
             Deferral = taskInstance.GetDeferral();
 
-            await ThreadPool.RunAsync(async workItem => {
+            await HomeAutomationCore.Server.Run();
 
-                HttpServer httpServer = new HttpServer(80);
-                try
-                {
-                    // initialize webserver
-                    var restRouteHandler = new RestRouteHandler();
-
-                    restRouteHandler.RegisterController<Controller.Home.Home>();
-                    restRouteHandler.RegisterController<Controller.Web.Web>();
-                    restRouteHandler.RegisterController<Controller.PhilipsHUE.Main>();
-
-                    httpServer.RegisterRoute("api", restRouteHandler);
-                    httpServer.RegisterRoute(new StaticFileRouteHandler(@"DemoStaticFiles\Web"));
-
-                    await httpServer.StartServerAsync();
-                }
-                catch (Exception ex)
-                {
-                    Log.e(ex);
-                    httpServer.StopServer();
-                    Deferral.Complete();
-                }
-
-            }, WorkItemPriority.High);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeAutomation.Controller.Web
+namespace HomeAutomationCore.Controller.Web
 {
     /// <summary>
     /// Web Controller, for basic web data requests

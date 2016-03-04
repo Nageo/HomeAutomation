@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeAutomation.Controller.PhilipsHUE
+namespace HomeAutomationCore.Controller.PhilipsHUE
 {
     internal class Response
     {

@@ -96,13 +96,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Home\Home.cs" />
-    <Compile Include="Controller\Home\Response.cs" />
-    <Compile Include="Controller\Web\Response.cs" />
-    <Compile Include="Controller\Web\Web.cs" />
-    <Compile Include="Controller\PhilipsHUE\Main.cs" />
-    <Compile Include="Controller\PhilipsHUE\Response.cs" />
-    <Compile Include="Log.cs" />
     <Compile Include="StartupTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -113,7 +106,6 @@
     <None Include="HomeAutomation_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GPIO.RASPBERRYPI2.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png">
       <InProject>false</InProject>
@@ -138,15 +130,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\o433Mhz\o433Mhz.csproj">
-      <Project>{b047e04b-133e-47f6-864f-f1cbaba1a29e}</Project>
-      <Name>o433Mhz</Name>
+    <ProjectReference Include="..\HomeAutomationCore\HomeAutomationCore.csproj">
+      <Project>{1cb4a8e8-9430-469b-8158-1ab039aa4ef4}</Project>
+      <Name>HomeAutomationCore</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
-      <Name>Windows IoT Extensions for the UWP</Name>
-    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

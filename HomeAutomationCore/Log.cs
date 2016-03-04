@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HomeAutomation
+namespace HomeAutomationCore
 {
     public enum LogType : int { All = 0, App = 1, Communication = 2, Mediator = 3, Database = 4 }
     public enum LogLevel : int { All=0, Info=1, Warning=2, Exception=3 }

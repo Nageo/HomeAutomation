@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4D0582F-B095-45D0-BB36-4A746EDDDF95}</ProjectGuid>
+    <ProjectGuid>{1CB4A8E8-9430-469B-8158-1AB039AA4EF4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RemoteWebApp</RootNamespace>
-    <AssemblyName>RemoteWebApp</AssemblyName>
+    <RootNamespace>HomeAutomationCore</RootNamespace>
+    <AssemblyName>HomeAutomationCore</AssemblyName>
     <DefaultLanguage>de-DE</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -104,37 +104,43 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="Web\css\jquery.mobile-1.4.5.css" />
-    <Content Include="Web\js\jquery.mobile-1.4.5.js" />
-    <Content Include="Web\css\jquery.mobile-1.4.5.min.css" />
-    <Content Include="Web\js\jquery.mobile-1.4.5.min.js" />
     <None Include="project.json" />
-    <Content Include="Web\css\fonts\Flat-UI-Icons-24.ttf" />
-    <None Include="Web\css\fonts\Flat-UI-Icons-24.woff" />
-    <Content Include="Web\css\fonts\lato-black.ttf" />
-    <None Include="Web\css\fonts\lato-black.woff" />
-    <Content Include="Web\css\fonts\lato-bold.ttf" />
-    <None Include="Web\css\fonts\lato-bold.woff" />
-    <Content Include="Web\css\fonts\lato-italic.ttf" />
-    <None Include="Web\css\fonts\lato-italic.woff" />
-    <Content Include="Web\css\fonts\lato-regular.ttf" />
-    <None Include="Web\css\fonts\lato-regular.woff" />
-    <None Include="Web\css\jquery.mobile-1.4.5.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Log.cs" />
+    <Compile Include="Model\Action.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Context.cs" />
+    <Compile Include="Model\DataContext\DataContext.cs" />
+    <Compile Include="Model\DataContext\SQLException.cs" />
+    <Compile Include="Model\DataContext\TableBase.cs" />
+    <Compile Include="Model\DataContext\Versioning\DBVersion.cs" />
+    <Compile Include="Model\DataContext\Versioning\Version.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="Controller\Home\Home.cs" />
+    <Compile Include="Controller\Home\Response.cs" />
+    <Compile Include="Controller\PhilipsHUE\Main.cs" />
+    <Compile Include="Controller\PhilipsHUE\Response.cs" />
+    <Compile Include="Controller\Web\Response.cs" />
+    <Compile Include="Controller\Web\Web.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\RemoteWebApp.rd.xml" />
+    <EmbeddedResource Include="Properties\HomeAutomationCore.rd.xml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Web\css\images\ajax-loader.gif" />
-    <Content Include="Web\css\images\icons-18-black.png" />
-    <Content Include="Web\css\images\icons-18-white.png" />
-    <Content Include="Web\css\images\icons-36-black.png" />
-    <Content Include="Web\css\images\icons-36-white.png" />
-    <Content Include="Web\css\jquery.mobile.flatui.css" />
-    <Content Include="Web\css\jquery.mobile.flatui.min.css" />
-    <Content Include="Web\index.html" />
+    <ProjectReference Include="..\o433Mhz\o433Mhz.csproj">
+      <Project>{b047e04b-133e-47f6-864f-f1cbaba1a29e}</Project>
+      <Name>o433Mhz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RemoteWebApp\RemoteWebApp.csproj">
+      <Project>{a4d0582f-b095-45d0-bb36-4a746edddf95}</Project>
+      <Name>RemoteWebApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.11.1">
+      <Name>SQLite for Universal Windows Platform</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -5,15 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeAutomation.Controller.Web
+namespace HomeAutomationCore.Controller.Home
 {
-    public class Response
+    internal class Response
     {
         public Exception Exception { get; set; }
 
+        public ulong CallsToAPI { get; set; }
+
         internal GetResponse GetAsResponse()
         {
-            return new GetResponse(GetResponse.ResponseStatus.OK, this);
+            return new GetResponse(GetResponse.ResponseStatus.OK, Newtonsoft.Json.JsonConvert.SerializeObject(this));
         }
     }
 }

@@ -7,7 +7,7 @@ using Devkoes.Restup.WebServer.Attributes;
 using Devkoes.Restup.WebServer.Models.Schemas;
 using Windows.Devices.Gpio;
 
-namespace HomeAutomation.Controller.PhilipsHUE
+namespace HomeAutomationCore.Controller.PhilipsHUE
 {
     public struct TestResponse {
         public int Calls;
