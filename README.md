@@ -1,5 +1,5 @@
 # HomeAutomation
-A simple headless automation service for your home. The REST/Web Server who runs this project will be https://github.com/tomkuijsten/restup
+A simple headless automation service for your home. The REST/Web Server who runs this project is https://github.com/tomkuijsten/restup
 
 ##### Currently Working
  * Home API for switching radio outlets
